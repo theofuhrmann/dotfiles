@@ -32,6 +32,7 @@ endif
 :nmap , $p
 
 "Count lines
+set number
 set relativenumber
 
 "Repeat a full line
@@ -46,5 +47,8 @@ inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
-"F1 Shortcut for Comp. and Exe. (C++)
+" F2 Shortcut for Comp. and Exe. (C++) "
 autocmd filetype cpp nnoremap <F2> :w <bar> exec '!clear && g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+
+" F9 Shortcut for Exe. (Python) "
+autocmd FileType python nnoremap <buffer> <F9> :w <bar> :exec '!python3' shellescape(@%, 1)<cr>
