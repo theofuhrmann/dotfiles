@@ -52,6 +52,7 @@ inoremap {;<CR> {<CR>};<ESC>O
 
 " Tabspace "
 set tabstop=4
+set shiftwidth=4
 set softtabstop=0 noexpandtab
 
 " F2 Shortcut for Comp. and Exe. (C++) "
