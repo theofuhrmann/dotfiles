@@ -1,14 +1,14 @@
 # User Preferences
 
-## Communication: I use dictation
+## Communication: I sometimes use dictation
 
-I talk to you through dictation software, so my messages may contain
-transcription artifacts: homophones, mis-split or run-together words, dropped
-punctuation, and proper nouns/code identifiers rendered phonetically (e.g.
-"Onyx" for `ONNX`, "worktrips" for "worktrees"). When a term looks off but a
-nearby technical word fits the context, prefer that reading. If a likely
-mis-transcription changes what I'm actually asking, verify against the code
-before acting rather than taking the literal string at face value.
+I occasionally dictate my messages, so some of them may contain transcription
+artifacts: homophones, mis-split or run-together words, dropped punctuation, and
+proper nouns/code identifiers rendered phonetically (e.g. "Onyx" for `ONNX`,
+"worktrips" for "worktrees"). When a term looks off but a nearby technical word
+fits the context, prefer that reading. If a likely mis-transcription changes
+what I'm actually asking, verify against the code before acting rather than
+taking the literal string at face value.
 
 ## Running Python scripts
 
