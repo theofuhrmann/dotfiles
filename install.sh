@@ -18,6 +18,17 @@ link() {
   echo "  linked $dst -> $src"
 }
 
+clone_if_missing() {
+  local repo="$1" dst="$2"
+  if [ -d "$dst/.git" ]; then
+    echo "  found $dst"
+  elif [ -e "$dst" ]; then
+    echo "  skipping $dst (already exists and is not a Git checkout)"
+  else
+    git clone --depth=1 "$repo" "$dst"
+  fi
+}
+
 echo "Installing dotfiles from $REPO"
 
 # --- shell / editor ---
@@ -26,6 +37,16 @@ link "$REPO/home/.zshrc" "$HOME/.zshrc"
 link "$REPO/home/.aliases" "$HOME/.aliases"
 link "$REPO/home/.functions" "$HOME/.functions"
 link "$REPO/home/.vimrc" "$HOME/.vimrc"
+
+if command -v git >/dev/null 2>&1; then
+  mkdir -p "$HOME/.zsh"
+  clone_if_missing https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh"
+  clone_if_missing https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.zsh/spaceship"
+  clone_if_missing https://github.com/zsh-users/zsh-autosuggestions.git "$HOME/.zsh/zsh-autosuggestions"
+  clone_if_missing https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zsh/zsh-syntax-highlighting"
+else
+  echo "  skipping Zsh prompt dependencies (git is unavailable)"
+fi
 
 # --- VS Code ---
 case "$(uname -s)" in

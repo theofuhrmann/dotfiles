@@ -29,7 +29,8 @@ fi
 
 for spaceship in \
   /opt/homebrew/opt/spaceship/spaceship.zsh \
-  /usr/local/opt/spaceship/spaceship.zsh; do
+  /usr/local/opt/spaceship/spaceship.zsh \
+  "$HOME/.zsh/spaceship/spaceship.zsh"; do
   if [[ -r "$spaceship" ]]; then
     source "$spaceship"
     break
@@ -39,7 +40,8 @@ unset spaceship
 
 for autosuggestions in \
   /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh \
-  /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh; do
+  /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh \
+  "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"; do
   if [[ -r "$autosuggestions" ]]; then
     source "$autosuggestions"
     break
@@ -50,7 +52,8 @@ unset autosuggestions
 # Syntax highlighting must be loaded after other shell plugins.
 for syntax_highlighting in \
   /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
-  /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh; do
+  /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+  "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"; do
   if [[ -r "$syntax_highlighting" ]]; then
     source "$syntax_highlighting"
     break
