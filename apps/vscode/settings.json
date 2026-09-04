@@ -1,0 +1,55 @@
+{
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit"
+        }
+    },
+    "[jupyter]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit"
+        }
+    },
+    "python.defaultInterpreterPath": "${env:HOME}/miniconda3",
+    "terminal.integrated.inheritEnv": false,
+    "jupyter.askForKernelRestart": false,
+    "explorer.confirmDelete": false,
+    "[csv]": {
+        "editor.inlayHints.maximumLength": 0
+    },
+    "explorer.confirmDragAndDrop": false,
+    "chat.editing.confirmEditRequestRemoval": false,
+    "workbench.editor.enablePreviewFromCodeNavigation": true,
+    "workbench.editor.enablePreviewFromQuickOpen": true,
+    "git.confirmSync": false,
+    "editor.minimap.enabled": false,
+    "explorer.confirmPasteNative": false,
+    "chat.viewSessions.orientation": "stacked",
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "*.wav": "wavPreview.audioPreview"
+    },
+    "claudeCode.preferredLocation": "panel",
+    "git.mergeEditor": true,
+    "WavPreview.autoAnalyze": true,
+    "editor.accessibilitySupport": "on",
+    "gitlens.views.commitDetails.files.layout": "tree",
+    "gitlens.views.scm.grouped.views": {
+        "commits": true,
+        "branches": true,
+        "remotes": true,
+        "stashes": true,
+        "tags": true,
+        "worktrees": true,
+        "contributors": true,
+        "fileHistory": false,
+        "repositories": true,
+        "searchAndCompare": true,
+        "launchpad": false
+    },
+    "gitlens.graph.details.location": "auto"
+}

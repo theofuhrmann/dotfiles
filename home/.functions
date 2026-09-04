@@ -1,0 +1,8 @@
+rclone() {
+  command rclone \
+    --transfers 256 \
+    --progress \
+    --exclude ".DS_Store" \
+    --delete-excluded \
+    "$@"
+}
