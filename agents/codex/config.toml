@@ -1,0 +1,55 @@
+# Codex user config, portable subset of ~/.codex/config.toml.
+#
+# Codex rewrites its live config in place (project trust entries, NUX state),
+# so this is a tracked reference copy rather than a symlink target: apply
+# changes by hand, or Codex's next write will fight the repo. Machine-local
+# sections are deliberately absent — [projects] trust levels, [marketplaces]
+# and [mcp_servers] cache paths, and [tui.model_availability_nux] are all
+# generated per machine and several embed absolute $HOME paths.
+
+model = "gpt-5.6-sol"
+model_reasoning_effort = "medium"
+service_tier = "default"
+approvals_reviewer = "auto_review"
+
+[desktop]
+followUpQueueMode = "steer"
+conversationDetailMode = "STEPS_COMMANDS"
+ambient-suggestions-enabled = false
+
+[plugins."codex-app-tools@openai-bundled"]
+enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."unified-computer-use@openai-bundled"]
+enabled = true
+
+[plugins."visualize@openai-bundled"]
+enabled = true
+
+[plugins."sites@openai-bundled"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = true
+
+[tui]
+status_line = ["current-dir", "git-branch", "pull-request-number", "model-with-reasoning", "context-remaining", "weekly-limit", "used-tokens", "fast-mode", "task-progress"]
+status_line_use_colors = true

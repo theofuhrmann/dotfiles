@@ -72,6 +72,7 @@ fi
 # per-item symlinks so locally-installed agents/skills can coexist without
 # being committed to this repo.
 link "$REPO/agents/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+link "$REPO/agents/claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
 
 mkdir -p "$HOME/.claude/agents" "$HOME/.claude/skills"
 for a in "$REPO"/agents/claude/agents/*.md; do
