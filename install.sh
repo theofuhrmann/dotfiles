@@ -18,6 +18,19 @@ link() {
   echo "  linked $dst -> $src"
 }
 
+seed() {
+  # Copy rather than symlink: Claude Code rewrites settings.json on /config,
+  # /model and /effort, which would leave the repo permanently dirty.
+  local src="$1" dst="$2"
+  mkdir -p "$(dirname "$dst")"
+  if [ -e "$dst" ] || [ -L "$dst" ]; then
+    echo "  keeping existing $dst (compare against $src by hand)"
+  else
+    cp "$src" "$dst"
+    echo "  seeded $dst from $src"
+  fi
+}
+
 clone_if_missing() {
   local repo="$1" dst="$2"
   if [ -d "$dst/.git" ]; then
@@ -73,6 +86,7 @@ fi
 # being committed to this repo.
 link "$REPO/agents/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
 link "$REPO/agents/claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
+seed "$REPO/agents/claude/settings.json" "$HOME/.claude/settings.json"
 
 mkdir -p "$HOME/.claude/agents" "$HOME/.claude/skills"
 for a in "$REPO"/agents/claude/agents/*.md; do

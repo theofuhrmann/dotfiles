@@ -20,6 +20,8 @@ Configuration is grouped by what consumes it:
   - `skills/` — `deslop-code`, `deslop-prose`
   - `statusline-command.sh` — status line: directory, git branch, PR, model and
     reasoning effort, context remaining, weekly rate limit, token count
+  - `settings.json` — theme and status line, copied into place on a new machine
+    rather than symlinked (see below)
 - `agents/codex/config.toml` → Codex preferences, tracked as a reference copy rather
   than symlinked (see below)
 - `.github/workflows/gitleaks.yml` → scans pushes and pull requests for committed secrets
@@ -33,14 +35,11 @@ git clone git@github.com:theofuhrmann/dotfiles.git ~/dotfiles
 ~/dotfiles/install.sh
 ```
 
-Claude Code's `settings.json` is not tracked, because Claude Code rewrites it. To use
-the status line, point it at the symlinked script yourself:
-
-```json
-{
-  "statusLine": { "type": "command", "command": "bash ~/.claude/statusline-command.sh" }
-}
-```
+Claude Code writes to `~/.claude/settings.json` itself — `/config`, `/model` and
+`/effort` all save there — so it is copied rather than symlinked. On a machine with no
+settings file the installer seeds it from `agents/claude/settings.json`, wiring up the
+status line; where one already exists the installer leaves it untouched and says so.
+The two can drift, so reconcile them by hand when you change a setting worth keeping.
 
 Codex is not symlinked either, for the same reason: it rewrites `~/.codex/config.toml`
 in place with project trust entries and first-run state. `agents/codex/config.toml`
